@@ -1,0 +1,134 @@
+#wrapper {
+    width: 1890px;
+    height: 1070px;
+    background-color: white;
+    position: relative;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    padding: 5px;
+}
+
+#topBar {
+    height: 125px;
+    width: 1890px;
+    border: 1px solid;
+    border-color: #dbd9ca;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+    background-color: #3A425F;
+}
+
+.websitename {
+    font-weight: bold;
+    font-size: 30px;
+    position: relative;
+    top: 20px;
+    left: 25px;
+    color: white;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    width: 1220px;
+}
+
+td {
+    text-align: left;
+    padding: 8px;
+}
+
+tbody {
+    border-bottom: 1px solid;
+    border-bottom: 1px solid;
+    font-size: 17px;
+    color: gray;
+}
+
+thead {
+    border-bottom: 0.5px solid;
+    border-bottom-color: gray;
+    font-size: 20px;
+    color: #707070
+}
+
+#central {
+    width: 1890px;
+    border: 1px solid;
+    border-color: #dbd9ca;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    margin: 5px;
+    margin-top: 70px;
+    padding: 5px;
+    height: 1000px;
+    background-color: #EDEDED
+}
+
+#table {
+    border-collapse: collapse;
+    width: 100%;
+    width: 1220px;
+    position: relative;
+    top: 80px;
+    left: 70px;
+    border: 1px solid;
+    border-color: white;
+    background-color: #FFFFFF;
+    text-align: -webkit-center;
+}
+
+.payment-details {
+    position: absolute;
+    top: 290px;
+    left: 1370px;
+    width: 443px;
+    height: 251px;
+    background: white;
+}
+
+.payment-button {
+    height: 83px;
+    width: 443px;
+    position: absolute;
+    background: yellow;
+    font-size: 40px;
+    color: gray;
+    top: 600px;
+    left: 1368px;
+}
+
+.continue-button {
+    position: absolute;
+    top: 700px;
+    width: 443px;
+    height: 83px;
+    background: white;
+    left: 1368px;
+    font-size: 30px;
+    color: gray;
+}
+
+a.fa.fa-home {
+    text-decoration: none;
+    font-size: 30px;
+    position: absolute;
+    top: 150px;
+    left: 10px;
+}
+
+.cart {
+    background-color: orange;
+    border: 1px solid gray;
+    display: inline-block;
+    width: 145px;
+    /* padding: 13px; */
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    margin-left: 1700px;
+    position: absolute;
+    top: 34px;
+    height: 83px;
+    font-size: 25px
+}

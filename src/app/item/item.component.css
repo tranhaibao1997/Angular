@@ -1,0 +1,33 @@
+.BT1 {
+    text-align: center;
+    margin: auto;
+    float: right;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    padding: 30px;
+    background-color: white;
+    margin-left: 90px;
+    margin-top: 100px;
+    margin-right: 100px;
+    width: 300px;
+    height: 270px;
+}
+
+.itemname {
+    font-size: 24px;
+    border-bottom: 2px solid;
+    border-bottom-color: orange;
+    margin: 0 auto;
+}
+
+.btn {
+    height: 50px;
+    width: 250px;
+    background-color: black;
+    color: white;
+    font-size: 18px;
+}
+
+a {
+    display: inline
+}

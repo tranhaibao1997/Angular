@@ -1,0 +1,23 @@
+<div id="wrapper">
+    <app-header></app-header>
+    <a routerLink="/home" class="fa fa-home"> Home</a>
+    <p style=" font-size: 23px;
+    position: absolute;
+    top: 126px;
+    left: 120px;">>Category {{selectedCategoryId}}</p>
+    <p class="sortText" (click)="SortedArray()">Sort By A-Z</p>
+    <div id="central">
+        <app-navigation-bar class="navigationBar"></app-navigation-bar>
+        <div class="itemlist" *ngFor="let item of items">
+            <app-item [item]="item" (onAddToCartEvent)="onAddToCartClick($event)"></app-item>
+
+        </div>
+    </div>
+    <div class="filter">
+        <p style="text-decoration: underline">Filter By Price</p>
+        <p>From:</p> <input id="a" type="text">
+        <p>To:</p> <input id="b" type="text">
+        <p><input type="button" (click)="PriceFilter()" value="Filter"></p>
+    </div>
+
+</div>

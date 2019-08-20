@@ -1,0 +1,11 @@
+<div id="central">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="  Start searching ">
+
+    <p class="sortText" (click)="SortedArray()">Sort By A-Z</p>
+    <div class="itemlist" *ngFor="let item of items|filter:searchText" click="selectItem(item)">
+
+
+        <app-item [item]="item" (onAddToCartEvent)="onAddToCartClick($event)"></app-item>
+    </div>
+
+</div>
