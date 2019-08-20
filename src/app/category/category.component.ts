@@ -12,12 +12,11 @@ import { AppServiceService } from '../app-service.service';
 export class CategoryComponent implements OnInit {
 
 
-
-  constructor(private appService: AppServiceService) { }
-  items:Item[];
-  
+  items:Item[]=[];
   selectedCategoryId: number;
   count:number;
+  constructor(private appService: AppServiceService) { }
+ 
  
 
   

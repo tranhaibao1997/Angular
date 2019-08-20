@@ -14,15 +14,15 @@ import {HomeComponent} from '../home/home.component'
 })
 export class ShoppingCartComponent implements OnInit {
 
-
+  items:Item[]=[];
+  total:number=0;
+  count:number=0;
   constructor(private appService: AppServiceService)
   {
    
    
   }
-  items=[];
-  total =0;
-  count;
+ 
    
   ngOnInit() {
     
@@ -30,7 +30,7 @@ export class ShoppingCartComponent implements OnInit {
     this.count=this.appService.cart.length;
 
     this.items.forEach(item => 
-      this.total+=item.price*item.quantity);
+    this.total+=item.price*item.quantity);
     console.log(this.total)
   }
  

@@ -132,3 +132,35 @@ a.fa.fa-home {
     height: 83px;
     font-size: 25px
 }
+
+.carttext {
+    font-size: 23px;
+    position: absolute;
+    top: 127px;
+    left: 120px;
+}
+
+.tax {
+    position: absolute;
+    font-size: 30px;
+    top: 0px;
+    left: 20px
+}
+
+.shipping {
+    position: absolute;
+    font-size: 30px;
+    top: 80px;
+    left: 20px
+}
+
+.total {
+    position: absolute;
+    font-size: 30px;
+    top: 179px;
+    left: 20px;
+    height: 50px;
+    width: 400px;
+    border-top: solid;
+    border-color: darkgray;
+}

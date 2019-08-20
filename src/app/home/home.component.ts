@@ -10,12 +10,13 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
+
+  items:Item[]=ITEMS;
+  count:number;
   constructor(private appService: AppServiceService)
   {
     
   }
-  items=ITEMS;
-  count;
   ngOnInit()
   {
     this.count=this.appService.cart.length;
@@ -26,10 +27,6 @@ export class HomeComponent implements OnInit{
     this.count=this.appService.cart.length;
     console.log(this.appService.cart.length)
     return this.count
-    
-    
-    
-    
   }
  
 

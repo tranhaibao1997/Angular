@@ -17,7 +17,7 @@ export class ItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  splitNum1(num) {
+  splitNum1(num:number) {
     var num1= num.toString();
     var part=[];
     part=num1.split('.');
@@ -26,7 +26,7 @@ export class ItemComponent implements OnInit {
 
 
   }
-  splitNum2(num)
+  splitNum2(num:number)
   {
     var num1= num.toString();
     var part=[];

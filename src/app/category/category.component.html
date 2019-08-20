@@ -1,10 +1,7 @@
 <div id="wrapper">
     <app-header></app-header>
     <a routerLink="/home" class="fa fa-home"> Home</a>
-    <p style=" font-size: 23px;
-    position: absolute;
-    top: 126px;
-    left: 120px;">>Category {{selectedCategoryId}}</p>
+    <p class="categoryText">>Category {{selectedCategoryId}}</p>
     <p class="sortText" (click)="SortedArray()">Sort By A-Z</p>
     <div id="central">
         <app-navigation-bar class="navigationBar"></app-navigation-bar>

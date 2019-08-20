@@ -8,26 +8,27 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AppServiceService {
-  cart=[];
-  count=this.cart.length;
-  categoryID;
+  cart:Item[]=[];
+  count:number=this.cart.length;
+  categoryID:number;
+  constructor() { }
   getItem()
   {
     return ITEMS; 
   }
-  getItemID(id)
+  getItemID(id:number)
   {
     return ITEMS.filter(item => item.id ===id);
   }
-  get categoryArray()
+  categoryArray()
   {
     const array = this.getItem().filter(item =>
-      item.categoryid == this.categoryID)
+    item.categoryid == this.categoryID)
     return array;
 
   }
   
   
 
-  constructor() { }
+  
 }

@@ -18,7 +18,7 @@ export class NavigationBarComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelectClick(clicked_id)
+  onSelectClick(clicked_id:number)
   {
     this.appService.categoryID = clicked_id;
    

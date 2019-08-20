@@ -10,9 +10,10 @@ import { AppServiceService } from '../app-service.service';
 })
 export class HeaderComponent implements OnInit {
 
+  count:number=0;
   constructor(private appService: AppServiceService) { }
 
-  count;
+
   ngOnInit() {
        this.count=this.appService.cart.length;   
 

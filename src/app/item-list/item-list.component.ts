@@ -11,13 +11,14 @@ import { Item } from '../Item';
 export class ItemListComponent implements OnInit {
 
 
-  
+  count:number=0;
+  items:Item[]=[];
+  searchText:string;
   constructor(private appService: AppServiceService)
   {
     
   }
-  count;
-  items:Item[];
+  
   getItemsFormService():void
   {
     this.items=this.appService.getItem();
@@ -25,9 +26,7 @@ export class ItemListComponent implements OnInit {
   ngOnInit() {
     this.getItemsFormService();
   }
-  searchText;
-
-
+  
 SortedArray()
 {
     
@@ -40,10 +39,6 @@ onAddToCartClick(item: any)
     this.appService.cart.push(item)
     this.count=this.appService.cart.length;
     console.log(this.count)
-    
-    
-    
-    
   }
 
 

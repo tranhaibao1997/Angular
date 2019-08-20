@@ -15,13 +15,13 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./item-detail.component.css']
 })
 export class ItemDetailComponent implements OnInit {
-
+  @Input() item:Item;
   constructor(
     private rount: ActivatedRoute,
     private appService:AppServiceService,
     private location:Location
   ) { }
-  @Input() item:Item;
+
   ngOnInit() {
     console.log(this.item)
   }

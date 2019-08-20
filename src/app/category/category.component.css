@@ -57,3 +57,10 @@ a.fa.fa-home {
     top: 700px;
     right: 300px;
 }
+
+.categoryText {
+    font-size: 23px;
+    position: absolute;
+    top: 126px;
+    left: 120px;
+}

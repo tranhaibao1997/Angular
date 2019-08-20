@@ -3,10 +3,7 @@
 <div id="wrapper">
     <app-header></app-header>
     <a routerLink="/home" class="fa fa-home"> Home</a>
-    <p style=" font-size: 23px;
-    position: absolute;
-    top: 127px;
-    left: 120px;">>Cart</p>
+    <p class="carttext">>Cart</p>
     <div id="central">
         <div id="table">
             <table>
@@ -32,22 +29,9 @@
             </table>
         </div>
         <div class="payment-details">
-            <p style="position: absolute;
-            font-size: 30px;
-            top: 0px;
-            left: 20px">Tax:10</p>
-            <p style="position: absolute;
-            font-size: 30px;
-            top: 80px;
-            left: 20px">Shipping:10</p>
-            <div style="    position: absolute;
-            font-size: 30px;
-            top: 179px;
-            left: 20px;
-            height: 50px;
-            width: 400px;
-            border-top: solid;
-            border-color: darkgray;">Total: {{total}}</div>
+            <p class="tax">Tax:10</p>
+            <p class="shipping">Shipping:10</p>
+            <div class="total">Total: {{total}}</div>
         </div>
         <button class="payment-button">Pay now</button>
         <button class="continue-button">Continue Shopping</button>
