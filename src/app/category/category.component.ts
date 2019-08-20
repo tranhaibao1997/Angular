@@ -27,6 +27,7 @@ export class CategoryComponent implements OnInit {
     this.selectedCategoryId=this.appService.categoryID;
 
 
+
   }
   onAddToCartClick(item: any) {
     this.appService.cart.push(item);

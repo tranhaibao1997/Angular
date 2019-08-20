@@ -1,5 +1,4 @@
 import { CategoryComponent } from './category/category.component';
-import { HeroDetailComponent } from './../../../angular-tour-of-heroes/src/app/hero-detail/hero-detail.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';

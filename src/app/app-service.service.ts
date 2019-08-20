@@ -17,7 +17,7 @@ export class AppServiceService {
   }
   getItemID(id)
   {
-    return ITEMS.filter(item => item.id ===id)
+    return ITEMS.filter(item => item.id ===id);
   }
   get categoryArray()
   {
