@@ -22,10 +22,7 @@ export class AppServiceService {
   }
   categoryArray(categoryID:number):Item[]
   {
-    const array = this.getItem().filter(item =>
-    item.categoryid == categoryID);
-
-    return array;
+    return ITEMS.filter(item => item.categoryid===categoryID);
 
   }
 

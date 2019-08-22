@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Item } from '../Item';
 import { AppServiceService } from '../app-service.service';
 import { Local } from 'protractor/built/driverProviders';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -12,17 +13,28 @@ import { Local } from 'protractor/built/driverProviders';
 })
 export class CategoryComponent implements OnInit {
   items:Item[]=[];  
-  selectedCategoryId: number =this.appService.categoryID;
+  selectedCategoryId:number =this.appService.categoryID;
   count:number;
-  constructor(private appService: AppServiceService) { }
+  constructor(private rount: ActivatedRoute,
+    private appService:AppServiceService,
+    ) { }
  
  
 
   
   ngOnInit() {
-  this.items=this.appService.categoryArray(this.selectedCategoryId)
+ this.getItemFromRouter();
     
 
+
+
+  }
+  getItemFromRouter()
+  {
+    var id= parseInt(this.rount.snapshot.paramMap.get('id'));
+    this.selectedCategoryId=id;
+    console.log(`this.route.snapshot.paramMap = ${JSON.stringify(this.rount.snapshot.paramMap)}`);
+    this.items=this.appService.categoryArray(id)
 
 
   }
@@ -44,6 +56,7 @@ PriceFilter()
 {
   this.items=this.getPriceFilter();
 }
+
 
 
 }
