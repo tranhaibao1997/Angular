@@ -21,6 +21,8 @@ export class NavigationBarComponent implements OnInit {
   onSelectClick(clicked_id:number)
   {
     this.appService.categoryID = clicked_id;
+    location.reload;
+    console.log(this.appService.categoryID)
    
   }
 }

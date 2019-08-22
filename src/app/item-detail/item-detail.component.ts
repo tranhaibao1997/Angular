@@ -15,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./item-detail.component.css']
 })
 export class ItemDetailComponent implements OnInit {
-  @Input() item:Item;
+  item:Item;
   constructor(
     private rount: ActivatedRoute,
     private appService:AppServiceService,
@@ -23,12 +23,15 @@ export class ItemDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.item)
+   this.getItemFromRouter();
+   
   }
   getItemFromRouter()
   {
     const id= parseInt(this.rount.snapshot.paramMap.get('id'));
-    this.appService.getItemID(id).find(item => this.item==item)
+    console.log(`this.route.snapshot.paramMap = ${JSON.stringify(this.rount.snapshot.paramMap)}`);
+    this.item=this.appService.getItemID(id);
+    console.log(this.item)
 
 
   }
@@ -36,5 +39,14 @@ export class ItemDetailComponent implements OnInit {
   {
     this.location.back();
   }
+  onAddToCartClick()
+  {
+    this.appService.cart.push(this.item)
+    
+  }
+  
+
 
 }
+
+

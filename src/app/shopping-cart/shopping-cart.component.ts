@@ -28,7 +28,6 @@ export class ShoppingCartComponent implements OnInit {
     
     this.items=this.appService.cart; 
     this.count=this.appService.cart.length;
-
     this.items.forEach(item => 
     this.total+=item.price*item.quantity);
     console.log(this.total)

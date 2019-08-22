@@ -1,6 +1,6 @@
-import { Item } from './../../../beautiful-angular-shopping/src/app/ItemModel';
-import { Observable } from 'rxjs';
-import { ITEMS } from './../../../beautiful-angular-shopping/src/app/Item-data';
+import { Item } from './Item';
+import { ITEMS } from './mock-data';
+import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 
@@ -12,21 +12,24 @@ export class AppServiceService {
   count:number=this.cart.length;
   categoryID:number;
   constructor() { }
-  getItem()
+  getItem():Item[]
   {
     return ITEMS; 
   }
-  getItemID(id:number)
+  getItemID(id:number):Item
   {
-    return ITEMS.filter(item => item.id ===id);
+    return ITEMS.find(item => item.id ===id);
   }
-  categoryArray()
+  categoryArray(categoryID:number):Item[]
   {
     const array = this.getItem().filter(item =>
-    item.categoryid == this.categoryID)
+    item.categoryid == categoryID);
+
     return array;
 
   }
+
+
   
   
 

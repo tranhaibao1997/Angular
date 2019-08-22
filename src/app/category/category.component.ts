@@ -2,6 +2,7 @@ import { ITEMS } from './../mock-data';
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../Item';
 import { AppServiceService } from '../app-service.service';
+import { Local } from 'protractor/built/driverProviders';
 
 
 @Component({
@@ -10,10 +11,8 @@ import { AppServiceService } from '../app-service.service';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-
-
-  items:Item[]=[];
-  selectedCategoryId: number;
+  items:Item[]=[];  
+  selectedCategoryId: number =this.appService.categoryID;
   count:number;
   constructor(private appService: AppServiceService) { }
  
@@ -21,9 +20,8 @@ export class CategoryComponent implements OnInit {
 
   
   ngOnInit() {
-    this.items=this.appService.getItem();
-    this.items=this.appService.categoryArray;
-    this.selectedCategoryId=this.appService.categoryID;
+  this.items=this.appService.categoryArray(this.selectedCategoryId)
+    
 
 
 
@@ -39,7 +37,7 @@ export class CategoryComponent implements OnInit {
   getPriceFilter() {
    var filterinput1=parseFloat((<HTMLInputElement>document.getElementById("a")).value);
     var filterinput2=parseFloat((<HTMLInputElement>document.getElementById("b")).value);
-    const array = this.appService.categoryArray.filter(item => item.price * item.quantity > filterinput1 && item.price * item.quantity < filterinput2)
+    const array = this.appService.categoryArray(this.selectedCategoryId).filter(item => item.price * item.quantity > filterinput1 && item.price * item.quantity < filterinput2)
     return array;
 }
 PriceFilter()
