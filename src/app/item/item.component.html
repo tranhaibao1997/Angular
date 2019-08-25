@@ -1,8 +1,9 @@
 <div class="itemblock">
     <a>
+        <img src="{{item.img}}" alt="Smiley face" height="100" width="100">
         <p class="itemname" routerLink="/detail/{{item.id}}">{{item.name}}</p>
-        <p>$<span style="font-weight:bold;font-size:20px">{{splitNum1(item.price*item.quantity)}}</span>.<span>{{splitNum2(item.price*item.quantity)}}</span></p>
-        <p style="color:gray">or {{item.quantity}} X ${{item.price}}</p>
+
+        <p style="color:gray">${{item.price}}</p>
         <input class="btn" type="button" value="Add to cart" (click)="onAddToCartClick()">
     </a>
 </div>

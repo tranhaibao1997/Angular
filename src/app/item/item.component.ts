@@ -9,6 +9,7 @@ import { EventEmitter } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
+  
   @Input() item:Item=new Item();
   @Output() onAddToCartEvent = new EventEmitter<any>();
   

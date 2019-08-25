@@ -15,6 +15,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { ItemListComponent } from './item-list/item-list.component';
 import { CategoryComponent } from './category/category.component';
 import { HeaderComponent } from './header/header.component';
+import { HttpClientModule }    from '@angular/common/http';
 
 //const rountes:Routes=[
   //{path:'',component:AppComponent},
@@ -39,6 +40,7 @@ import { HeaderComponent } from './header/header.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    HttpClientModule,
   
     
   ],
