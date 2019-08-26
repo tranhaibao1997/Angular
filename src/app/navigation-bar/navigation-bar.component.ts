@@ -14,8 +14,10 @@ export class NavigationBarComponent implements OnInit {
 
    
   constructor(private appService:AppServiceService) { }
+  categorylist:string[]=[];
 
   ngOnInit() {
+    this.getItemsFormService();
   }
 
   onSelectClick(clicked_id:number)
@@ -24,5 +26,23 @@ export class NavigationBarComponent implements OnInit {
     location.reload;
     console.log(this.appService.categoryID)
    
+  }
+  getItemsFormService(): void {
+    this.appService.getItem().subscribe(success => {
+      var a=success.data.map(rawItem => 
+        {
+           
+           this.categorylist.push(rawItem.category_id);
+
+        }
+        )
+      console.log(this.categorylist)
+
+    },
+      //
+      error => {
+        console.log(error);
+      });
+
   }
 }

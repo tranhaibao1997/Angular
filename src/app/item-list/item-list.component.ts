@@ -19,34 +19,10 @@ export class ItemListComponent implements OnInit {
 
   }
 
-  getItemsFormService(): void {
-    this.appService.getItem().subscribe(success => {
-      var a=success.data.map(rawItem => 
-        {
-          let temp=new Item()
-          temp.id=rawItem.product_id;
-          temp.categoryid=rawItem.category_id;
-          temp.name=rawItem.name;
-          temp.price=rawItem.price;
-          temp.img=rawItem.img_url
-          this.items.push(temp);
-
-          
-
-        }
-        )
-      console.log(a)
-      
-
-    },
-      //
-      error => {
-        console.log(error);
-      });
-
-  }
+  
   ngOnInit() {
-    this.getItemsFormService();
+    this.appService.getItemsFormService();
+    this.items=this.appService.items;
   }
 
   SortedArray() {

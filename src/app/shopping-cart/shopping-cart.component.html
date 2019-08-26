@@ -1,40 +1,61 @@
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <div id="wrapper">
     <app-header></app-header>
     <a routerLink="/home" class="fa fa-home"> Home</a>
     <p class="carttext">>Cart</p>
     <div id="central">
-        <div id="table">
-            <table>
+
+        <div class="container">
+            <table id="cart" class="table table-hover table-condensed">
                 <thead>
                     <tr>
-                        <td>Item</td>
-                        <td>Name</td>
-                        <td>Quantity</td>
-                        <td>Price</td>
-                        <td>Total</td>
+                        <th style="width:50%">Product</th>
+                        <th style="width:10%">Price</th>
+                        <th style="width:8%">Quantity</th>
+                        <th style="width:22%" class="text-center">Subtotal</th>
+                        <th style="width:10%"></th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let item of items">
-                    <td></td>
-                    <td>{{item.name}}</td>
-                    <td class="col-sm-1 col-md-1">
-                        <input type="number" min="1" name="txtSoluong" [(ngModel)]="item.quantity" />
-                    </td>
-                    <td>{{item.price}}</td>
-                    <td class="total">{{item.quantity*item.price}}</td>
-                </tbody>
+                <tbody>
+                    <tr *ngFor="let item of items">
+                        <td data-th="Product">
+                            <div class="row">
+                                <div class="col-sm-2 hidden-xs"><img src="{{item.img}}" alt="..." class="img-responsive" /></div>
+                                <div class="col-sm-10">
+                                    <h4 class="nomargin">{{item.name}}</h4>
 
+                                </div>
+                            </div>
+                        </td>
+                        <td data-th="Price">${{item.price}}</td>
+                        <td data-th="Quantity">
+                            <input type="number" class="form-control text-center" value="1" [(ngModel)]="Quantity">
+                        </td>
+                        <td data-th="Subtotal" class="text-center">{{item.price* Quantity}}</td>
+                        <td class="actions" data-th="">
+                            <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="visible-xs">
+                        <td class="text-center"><strong>Total 1.99</strong></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                        <td colspan="2" class="hidden-xs"></td>
+                        <td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
+                        <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+                    </tr>
+                </tfoot>
             </table>
         </div>
-        <div class="payment-details">
-            <p class="tax">Tax:10</p>
-            <p class="shipping">Shipping:10</p>
-            <div class="total">Total: {{total}}</div>
-        </div>
-        <button class="payment-button">Pay now</button>
-        <button class="continue-button">Continue Shopping</button>
     </div>
 
 </div>
