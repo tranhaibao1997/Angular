@@ -1,8 +1,8 @@
+import { CartItem } from './../cartItem';
 import { Location } from '@angular/common';
 import { AppService } from './../../../../beautiful-angular-shopping/src/app/app.service';
 import { AppServiceService } from './../app-service.service';
 import { ItemListComponent } from './../item-list/item-list.component';
-import { ITEMS } from './../mock-data';
 import { Item } from './../Item';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -35,14 +35,17 @@ export class ItemDetailComponent implements OnInit {
 
 
   }
+  
   goBack()
   {
     this.location.back();
   }
   onAddToCartClick()
   {
-    this.appService.cart.push(this.item)
-    
+    let cartItem:CartItem=new CartItem();
+    cartItem.item=this.item;
+    cartItem.quantity=1;
+    this.appService.cart.push(cartItem);  
   }
   
 

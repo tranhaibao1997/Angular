@@ -1,3 +1,5 @@
+import { CartItem } from './../cartItem';
+
 
 import { AppServiceService } from './../app-service.service';
 import { Item } from './../Item';
@@ -14,7 +16,7 @@ import {HomeComponent} from '../home/home.component'
 })
 export class ShoppingCartComponent implements OnInit {
 
-  items:Item[]=[];
+  cart:any[];
   total:number=0;
   count:number=0;
   constructor(private appService: AppServiceService)
@@ -26,7 +28,7 @@ export class ShoppingCartComponent implements OnInit {
    
   ngOnInit() {
     
-    this.items=this.appService.cart; 
+    this.cart=this.appService.cart; 
     this.count=this.appService.cart.length;
     
     console.log(this.total)

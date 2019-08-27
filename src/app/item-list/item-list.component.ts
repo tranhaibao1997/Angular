@@ -1,5 +1,5 @@
+import { CartItem } from './../cartItem';
 import { Component, OnInit } from '@angular/core';
-import { ITEMS } from '../mock-data';
 import { AppServiceService } from '../app-service.service';
 import { Item } from '../Item';
 import { IncomingMessage } from 'http';
@@ -21,8 +21,20 @@ export class ItemListComponent implements OnInit {
 
   
   ngOnInit() {
-    this.appService.getItemsFormService();
-    this.items=this.appService.items;
+    
+    this.appService.getCategory1Item().subscribe(success => {
+      this.items = success.data.map(rawItem => {
+        let temp = new Item();
+        temp.id = rawItem.product_id;
+        temp.categoryid = rawItem.category_id;
+        temp.name = rawItem.name;
+        temp.price = rawItem.price;
+        temp.img = rawItem.img_url;
+        return temp;
+      })
+     
+      
+    });
   }
 
   SortedArray() {
@@ -31,9 +43,11 @@ export class ItemListComponent implements OnInit {
 
   }
   onAddToCartClick(item: any) {
-    this.appService.cart.push(item)
-    this.count = this.appService.cart.length;
-    console.log(this.count)
+    let cartItem =new CartItem();
+    cartItem.item=item;
+    cartItem.quantity=1;
+    this.appService.cart.push(cartItem)
+    
   }
 
 

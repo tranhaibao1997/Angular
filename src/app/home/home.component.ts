@@ -1,6 +1,6 @@
+import { Location } from '@angular/common';
 import { AppServiceService } from './../app-service.service';
 import { Item } from './../Item';
-import { ITEMS } from './../mock-data';
 import { Component, Input, OnInit } from '@angular/core';
 
 
@@ -11,7 +11,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit{
 
-  items:Item[]=ITEMS;
+ 
   count:number;
   constructor(private appService: AppServiceService)
   {
@@ -19,15 +19,10 @@ export class HomeComponent implements OnInit{
   }
   ngOnInit()
   {
-    this.count=this.appService.cart.length;
+  
   }
 
-  onAddToCartClick(item: any)
-  {
-    this.count=this.appService.cart.length;
-    console.log(this.appService.cart.length)
-    return this.count
-  }
+
  
 
   

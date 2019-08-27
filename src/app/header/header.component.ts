@@ -1,4 +1,4 @@
-import { ITEMS } from './../mock-data';
+
 import { Component, OnInit } from '@angular/core';
 import { AppServiceService } from '../app-service.service';
 
@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit() {
-       this.count=this.appService.cart.length;   
+       //this.count=this.appService.cart.length;   
 
   }
   

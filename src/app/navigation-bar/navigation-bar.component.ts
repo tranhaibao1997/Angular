@@ -1,6 +1,5 @@
+import { Location } from '@angular/common';
 import { AppServiceService } from './../app-service.service';
-import { AppService } from './../../../../beautiful-angular-shopping/src/app/app.service';
-import { ITEMS } from './../mock-data';
 import { Item } from './../Item';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { element } from 'protractor';
@@ -13,36 +12,22 @@ import { element } from 'protractor';
 export class NavigationBarComponent implements OnInit {
 
    
-  constructor(private appService:AppServiceService) { }
+  constructor(private appService:AppServiceService,
+    private location: Location) { }
   categorylist:string[]=[];
 
   ngOnInit() {
-    this.getItemsFormService();
+    
   }
 
+  
   onSelectClick(clicked_id:number)
   {
     this.appService.categoryID = clicked_id;
-    location.reload;
+    this.appService.updatedCategoryRequest.next(clicked_id)
     console.log(this.appService.categoryID)
+    
+    
    
-  }
-  getItemsFormService(): void {
-    this.appService.getItem().subscribe(success => {
-      var a=success.data.map(rawItem => 
-        {
-           
-           this.categorylist.push(rawItem.category_id);
-
-        }
-        )
-      console.log(this.categorylist)
-
-    },
-      //
-      error => {
-        console.log(error);
-      });
-
   }
 }

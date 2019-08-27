@@ -17,7 +17,7 @@
     margin: 5px;
     margin-top: 70px;
     padding: 5px;
-    height: 1000px;
+    height: 3000px;
     background-color: #EDEDED
 }
 
@@ -63,4 +63,8 @@ a.fa.fa-home {
     position: absolute;
     top: 126px;
     left: 120px;
+}
+
+.itemlist {
+    margin-top: 330px
 }
