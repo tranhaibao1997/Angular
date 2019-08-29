@@ -5,6 +5,7 @@ import { AppServiceService } from '../app-service.service';
 import { Local } from 'protractor/built/driverProviders';
 import { ActivatedRoute } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { CartItem } from '../cartItem';
 
 
 @Component({
@@ -77,9 +78,11 @@ export class CategoryComponent implements OnInit {
 
   // }
   onAddToCartClick(item: any) {
-    //this.appService.cart.push(item);
-    this.count = this.appService.cart.length;
-    return this.count
+    let cartItem =new CartItem();
+    cartItem.item=item;
+    cartItem.quantity=1;
+    this.appService.cart.push(cartItem)
+    console.log(this.appService.cart)
 
 
   }

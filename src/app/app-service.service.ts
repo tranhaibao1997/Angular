@@ -11,9 +11,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class AppServiceService {
   cart: CartItem[]=[];
+  count:number=0;
   categoryID: number=0;;
   items: Item[] = [];
   updatedCategoryRequest: BehaviorSubject<any> = new BehaviorSubject(false);
+  updatedCartCountRequest: BehaviorSubject<any> = new BehaviorSubject(false);
 
 
 

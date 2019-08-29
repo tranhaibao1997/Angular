@@ -37,6 +37,8 @@ export class ShoppingCartComponent implements OnInit {
    const uniq=new Set(this.appService.cart.map(e => JSON.stringify(e)));
    var res=Array.from(uniq).map(e=>JSON.parse(e));
    this.cart=res;
+   this.appService.count=res.length;
+   this.appService.updatedCartCountRequest.next(res.length);
   }
 
   totalCaculate()
@@ -46,6 +48,12 @@ export class ShoppingCartComponent implements OnInit {
          this.total+=item.item.price * item.quantity
     }
     )
+  }
+  deleteItem(x)
+  {
+    console.log(x)
+    this.cart.splice(x,1);
+    this.appService.count=this.cart.length;
   }
  
 }
