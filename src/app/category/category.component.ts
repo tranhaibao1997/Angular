@@ -32,9 +32,7 @@ export class CategoryComponent implements OnInit {
             temp.img = rawItem.img_url;
             return temp;
           })
-          console.log(this.items);
-          
-        });
+           });
       }
       if (success == 2) {
         this.appService.getCategory2Item().subscribe(success => {
@@ -58,6 +56,8 @@ export class CategoryComponent implements OnInit {
 
 
   ngOnInit() {
+
+    
 
 
 

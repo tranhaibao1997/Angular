@@ -28,10 +28,24 @@ export class ShoppingCartComponent implements OnInit {
    
   ngOnInit() {
     
-    this.cart=this.appService.cart; 
-    this.count=this.appService.cart.length;
-    
-    console.log(this.total)
+    this.filterCartItem();
+    this.totalCaculate();
+  }
+
+  filterCartItem()
+  {
+   const uniq=new Set(this.appService.cart.map(e => JSON.stringify(e)));
+   var res=Array.from(uniq).map(e=>JSON.parse(e));
+   this.cart=res;
+  }
+
+  totalCaculate()
+  {
+   this.cart.forEach(item => 
+    {
+         this.total+=item.item.price * item.quantity
+    }
+    )
   }
  
 }

@@ -3,7 +3,7 @@ import { Item } from './Item';
 
 export class CartItem {
 
-    item: Item;
+    item:Item=new Item();
     quantity: number;
 
 }

@@ -23,7 +23,7 @@ export class ItemListComponent implements OnInit {
   ngOnInit() {
     
     this.appService.getCategory1Item().subscribe(success => {
-      this.items = success.data.map(rawItem => {
+      this.appService.items = success.data.map(rawItem => {
         let temp = new Item();
         temp.id = rawItem.product_id;
         temp.categoryid = rawItem.category_id;
@@ -32,9 +32,11 @@ export class ItemListComponent implements OnInit {
         temp.img = rawItem.img_url;
         return temp;
       })
+      this.items=this.appService.items
      
       
     });
+   this.items=this.appService.items
   }
 
   SortedArray() {
@@ -47,6 +49,7 @@ export class ItemListComponent implements OnInit {
     cartItem.item=item;
     cartItem.quantity=1;
     this.appService.cart.push(cartItem)
+    console.log(this.appService.cart)
     
   }
 
