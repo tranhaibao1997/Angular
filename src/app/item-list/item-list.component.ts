@@ -36,22 +36,45 @@ export class ItemListComponent implements OnInit {
      
       
     });
-   this.items=this.appService.items
+   this.items=this.appService.items;
+  
   }
 
   SortedArray() {
 
-    return this.items.sort((a, b) => { return <any>new String(a.name) - <any>new String(b.name); })
+    return this.appService.items.sort((a, b) => { return <any>new String(a.name) - <any>new String(b.name); })
 
   }
   onAddToCartClick(item: any) {
-    let cartItem =new CartItem();
-    cartItem.item=item;
-    cartItem.quantity=1;
-    this.appService.cart.push(cartItem)
-    console.log(this.appService.cart)
+ 
+    if(this.appService.cart.length==0)
+    {
+      let cartItem =new CartItem();
+        cartItem.item=item;
+        cartItem.quantity=1;
+        this.appService.cart.push(cartItem)
+    }
+    else
+    {
+    let index=this.appService.cart.findIndex(i => i.item.id==item.id)
+    console.log(index)
+    if(index !=-1)
+    {
+      this.appService.cart[index].quantity++;
+    }
+    else
+    {
+      let cartItem =new CartItem();
+      cartItem.item=item;
+      cartItem.quantity=1;
+      this.appService.cart.push(cartItem)
+    }
+  
+    
     
   }
+  console.log(this.appService.cart)
+}
 
 
 }

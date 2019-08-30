@@ -16,7 +16,7 @@ import {HomeComponent} from '../home/home.component'
 })
 export class ShoppingCartComponent implements OnInit {
 
-  cart:any[];
+  cart:CartItem[] = [];
   total:number=0;
   count:number=0;
   constructor(private appService: AppServiceService)
@@ -28,18 +28,12 @@ export class ShoppingCartComponent implements OnInit {
    
   ngOnInit() {
     
-    this.filterCartItem();
-    this.totalCaculate();
+    this.cart=this.appService.cart;
+    // this.totalCaculate();
+    
   }
 
-  filterCartItem()
-  {
-   const uniq=new Set(this.appService.cart.map(e => JSON.stringify(e)));
-   var res=Array.from(uniq).map(e=>JSON.parse(e));
-   this.cart=res;
-   this.appService.count=res.length;
-   this.appService.updatedCartCountRequest.next(res.length);
-  }
+  
 
   totalCaculate()
   {
@@ -55,6 +49,7 @@ export class ShoppingCartComponent implements OnInit {
     this.cart.splice(x,1);
     this.appService.count=this.cart.length;
   }
+  
  
 }
 
