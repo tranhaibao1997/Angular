@@ -20,16 +20,13 @@ export class ShoppingCartComponent implements OnInit {
   total:number=0;
   count:number=0;
   constructor(private appService: AppServiceService)
-  {
-   
-   
-  }
+  {}
  
    
   ngOnInit() {
     
     this.cart=this.appService.cart;
-    // this.totalCaculate();
+    this.totalCaculate();
     
   }
 
@@ -45,9 +42,7 @@ export class ShoppingCartComponent implements OnInit {
   }
   deleteItem(x)
   {
-    console.log(x)
     this.cart.splice(x,1);
-    this.appService.count=this.cart.length;
   }
   
  

@@ -38,11 +38,14 @@ export class ItemListComponent implements OnInit {
     });
    this.items=this.appService.items;
   
+  
+  
   }
 
   SortedArray() {
 
-    return this.appService.items.sort((a, b) => { return <any>new String(a.name) - <any>new String(b.name); })
+    var sortArray= this.appService.items.sort((a, b) => { return <any>new String(a.name) - <any>new String(b.name); })
+    this.items=sortArray;
 
   }
   onAddToCartClick(item: any) {

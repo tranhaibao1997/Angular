@@ -11,23 +11,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  count:number=0;
-  constructor(private appService: AppServiceService,
-    private rount: ActivatedRoute) { 
-      this.appService.updatedCategoryRequest.subscribe(success => {
-        this.count=success;
-       
-  
-      }, error => { })
-      
+ 
+  constructor(private appService: AppServiceService,) { 
 
     
   }
 
 
   ngOnInit() {
-       this.count=this.appService.cart.length;   
-
+  
   }
   
   

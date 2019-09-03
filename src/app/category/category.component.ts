@@ -73,27 +73,54 @@ ShowCategoryItem()
     }
 }, error => {console.log(error) })
 }
-ngOnInit() {}
+ngOnInit(
+) 
+{
+  this.getPriceFilter();
+}
  
-  onAddToCartClick(item: any) {
-    let cartItem =new CartItem();
-    cartItem.item=item;
-    cartItem.quantity=1;
-    this.appService.cart.push(cartItem)
-    console.log(this.appService.cart)}
+  onAddToCartClick(item: any) 
+  {
+    if(this.appService.cart.length==0)
+    {
+      let cartItem =new CartItem();
+        cartItem.item=item;
+        cartItem.quantity=1;
+        this.appService.cart.push(cartItem)
+    }
+    else
+    {
+    let index=this.appService.cart.findIndex(i => i.item.id==item.id)
+    console.log(index)
+    if(index !=-1)
+    {
+      this.appService.cart[index].quantity++;
+    }
+    else
+    {
+      let cartItem =new CartItem();
+      cartItem.item=item;
+      cartItem.quantity=1;
+      this.appService.cart.push(cartItem)
+    }
+  
+    
+    
+  }
+  }
   
     getPriceFilter() {
     var filterinput1 = parseFloat((<HTMLInputElement>document.getElementById("a")).value);
     var filterinput2 = parseFloat((<HTMLInputElement>document.getElementById("b")).value);
     if(this.selectedCategoryId=1)
     {
-    const array = this.items1.filter(item => item.price * item.quantity > filterinput1 && item.price * item.quantity < filterinput2)
-    return this.items=array
+    const array1 = this.items.filter(item => item.price > filterinput1 && item.price < filterinput2)
+    return this.items=array1
     }
     else
     {
-      const array = this.items1.filter(item => item.price * item.quantity > filterinput1 && item.price * item.quantity < filterinput2)
-      return this.items=array;
+      const array2 = this.items.filter(item => item.price> filterinput1 && item.price  < filterinput2)
+      return this.items=array2;
     }
   }
  

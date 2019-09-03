@@ -16,6 +16,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ItemDetailComponent implements OnInit {
   item:Item;
+  quantity:number
   constructor(
     private rount: ActivatedRoute,
     private appService:AppServiceService,
@@ -42,10 +43,32 @@ export class ItemDetailComponent implements OnInit {
   }
   onAddToCartClick()
   {
-    let cartItem:CartItem=new CartItem();
-    cartItem.item=this.item;
-    cartItem.quantity=1;
-    this.appService.cart.push(cartItem);  
+    if(this.appService.cart.length==0)
+    {
+      let cartItem =new CartItem();
+        cartItem.item=this.item;
+        cartItem.quantity=this.quantity;
+        this.appService.cart.push(cartItem)
+    }
+    else
+    {
+    let index=this.appService.cart.findIndex(i => i.item.id==this.item.id)
+    if(index !=-1)
+    {
+      this.appService.cart[index].quantity++;
+    }
+    else
+    {
+      let cartItem =new CartItem();
+      cartItem.item=this.item;
+      cartItem.quantity=this.quantity;
+      this.appService.cart.push(cartItem)
+      console.log(this.quantity)
+    }
+  
+    
+    
+  }  
   }
   
 

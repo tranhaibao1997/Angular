@@ -13,7 +13,7 @@ export class NavigationBarComponent implements OnInit {
 
    
   constructor(private appService:AppServiceService,
-    private location: Location) { }
+   ) { }
   categorylist:string[]=[];
 
   ngOnInit() {
