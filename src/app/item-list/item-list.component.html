@@ -1,11 +1,22 @@
-<div id="central">
-    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="  Start searching ">
-
-    <p class="sortText" (click)="SortedArray()">Sort By A-Z</p>
-    <div class="itemlist" *ngFor="let item of items|filter:searchText">
-
-
-        <app-item [item]="item" (onAddToCartEvent)="onAddToCartClick($event)"></app-item>
+<div class="row">
+    <!--   Search Bar -->
+    <div class="col-md-6">
+        <div class="searchbar">
+            <input class="search_input" type="text" name="" placeholder="Search..." [(ngModel)]="searchText">
+            <a href="#" class="search_icon"><i class="fa fa-search"></i></a>
+        </div>
     </div>
 
+    <!--   Sort Button -->
+    <div class="col-md-6">
+        <div><button class="btn btn-outline-primary" (click)="sortText">Sort By Price</button></div>
+    </div>
+</div>
+
+
+<!--   Show Item List -->
+<div class="col-md-12">
+    <div class="itemlist" *ngFor="let item of items|filter:searchText">
+        <app-item [item]="item" (onAddToCartEvent)="onAddToCartClick($event)"></app-item>
+    </div>
 </div>

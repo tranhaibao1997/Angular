@@ -1,21 +1,44 @@
 <div id="wrapper">
-    <app-header></app-header>
-    <a routerLink="/home" class="fa fa-home"> Home</a>
+    <div class="col-md-12">
+        <!--   Header -->
+        <app-header></app-header>
+    </div>
 
-    <p class="categoryText">>Category {{selectedCategoryId}}</p>
-    <p class="sortText" (click)="SortedArray()">Sort By A-Z</p>
-    <div id="central">
-        <app-navigation-bar class="navigationBar"></app-navigation-bar>
-        <div class="itemlist" *ngFor="let item of items">
-            <app-item [item]="item" (onAddToCartEvent)="onAddToCartClick($event)"></app-item>
 
+    <!--   Duong dan  -->
+    <div style="height: 50px" class="col-md-12">
+
+        <div class="link">
+            <a routerLink="/home"> <i class="fa fa-home" aria-hidden="true"></i>Home</a> > Category {{selectedCategoryId}}
+        </div>
+
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-2">
+            <!--   Nav Bar -->
+            <app-navigation-bar></app-navigation-bar>
+
+            <!--   Khung de filter gia-->
+            <div class="filter">
+                <p style="text-decoration: underline">Filter By Price</p>
+                <p>From:</p> <input id="a" type="text">
+                <p>To:</p> <input id="b" type="text">
+                <input class="btn btn-danger" type="button" (click)="getPriceFilter()" value="Filter">
+            </div>
+        </div>
+
+        <!--   Show Item -->
+        <div class="col-md-10">
+            <div *ngFor="let item of items">
+                <app-item [item]="item" (onAddToCartEvent)="onAddToCartClick($event)"></app-item>
+
+            </div>
         </div>
     </div>
-    <div class="filter">
-        <p style="text-decoration: underline">Filter By Price</p>
-        <p>From:</p> <input id="a" type="text">
-        <p>To:</p> <input id="b" type="text">
-        <p><input type="button" (click)="getPriceFilter()" value="Filter"></p>
-    </div>
+
+
 
 </div>

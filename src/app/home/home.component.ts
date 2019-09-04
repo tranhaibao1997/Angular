@@ -12,7 +12,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit{
 
  
-  count:number;
+  
   constructor(private appService: AppServiceService)
   {
     

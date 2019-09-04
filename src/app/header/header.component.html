@@ -1,14 +1,19 @@
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div id="topBar" class="col-md-12">
+    <div class="row">
+        <!--   Logo -->
+        <div class="col-md-3" style="height: 125px">
+            <p class="websitename">Website name</p>
+        </div>
 
 
-</head>
+        <div class="col-md-7">
+        </div>
 
+        <!--   Cart Button -->
+        <div class="col-md-2">
+            <a routerLink="/cart"><button class="cart">Cart({{this.appService.cart.length}})</button></a>
+        </div>
+    </div>
 
-<div id="topBar">
-    <p class="websitename">Website name</p>
-    <a routerLink="/cart"><button class="cart">Cart({{this.appService.cart.length}})</button></a>
 
 </div>

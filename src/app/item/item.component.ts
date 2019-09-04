@@ -18,22 +18,8 @@ export class ItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  splitNum1(num:number) {
-    var num1= num.toString();
-    var part=[];
-    part=num1.split('.');
-    return part[0];
 
-
-
-  }
-  splitNum2(num:number)
-  {
-    var num1= num.toString();
-    var part=[];
-    part=num1.split('.');
-    return part[1];
-  }
+  //Output a item 
   onAddToCartClick()
   {
     this.onAddToCartEvent.emit(this.item);

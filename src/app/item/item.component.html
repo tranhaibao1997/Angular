@@ -1,31 +1,26 @@
-<div class="container page-wrapper">
-    <div class="page-inner">
-        <div class="row">
-            <div class="el-wrapper">
-                <div class="box-up">
-                    <img class="img" routerLink="/detail/{{item.id}}" src="{{item.img}}" alt="">
-                    <div class="img-info">
-                        <div class="info-inner">
-                            <span class="p-name">{{item.name}}</span>
+<div class="el-wrapper">
 
-                        </div>
 
-                    </div>
-                </div>
+    <div class="box-up">
+        <img class="img" routerLink="/detail/{{item.id}}" src="{{item.img}}" alt="">
+        <div class="img-info">
+            <div class="info-inner">
+                <span class="p-name">{{item.name}}</span>
 
-                <div class="box-down">
-                    <div class="h-bg">
-                        <div class="h-bg-inner"></div>
-                    </div>
-
-                    <a class="cart">
-                        <span class="price">${{item.price}}</span>
-                        <span (click)="onAddToCartClick()" class="add-to-cart">
-                    <span  class="txt">Add in cart</span>
-                        </span>
-                    </a>
-                </div>
             </div>
+
         </div>
     </div>
-</div>
+
+    <div class="box-down">
+        <div class="h-bg">
+            <div class="h-bg-inner"></div>
+        </div>
+
+        <a class="cart">
+            <span class="price">${{item.price}}</span>
+            <span (click)="onAddToCartClick()" class="add-to-cart">
+                    <span  class="txt">Add in cart</span>
+            </span>
+        </a>
+    </div>

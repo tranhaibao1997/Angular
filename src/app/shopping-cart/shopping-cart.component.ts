@@ -32,6 +32,7 @@ export class ShoppingCartComponent implements OnInit {
 
   
 
+  //Get Total of items in cart
   totalCaculate()
   {
    this.cart.forEach(item => 
@@ -40,6 +41,8 @@ export class ShoppingCartComponent implements OnInit {
     }
     )
   }
+
+  //Delete Item by index 
   deleteItem(x)
   {
     this.cart.splice(x,1);

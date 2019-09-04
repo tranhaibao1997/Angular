@@ -11,17 +11,15 @@ import { IncomingMessage } from 'http';
 })
 export class ItemListComponent implements OnInit {
 
-
-  count: number = 0;
   items: Item[] = [];
   searchText: string;
   constructor(private appService: AppServiceService) {
 
   }
 
-  
+
   ngOnInit() {
-    
+
     this.appService.getCategory1Item().subscribe(success => {
       this.appService.items = success.data.map(rawItem => {
         let temp = new Item();
@@ -32,52 +30,52 @@ export class ItemListComponent implements OnInit {
         temp.img = rawItem.img_url;
         return temp;
       })
-      this.items=this.appService.items
-     
-      
+      this.items = this.appService.items
+
+
     });
-   this.items=this.appService.items;
-  
-  
-  
+
+
+
   }
 
+  //Sort Item by Price
   SortedArray() {
 
-    var sortArray= this.appService.items.sort((a, b) => { return <any>new String(a.name) - <any>new String(b.name); })
-    this.items=sortArray;
+     this.items=this.items.sort((a,b) =>{ return a.price - b.price;})
+     console.log(this.items)
+
 
   }
+
+
+  //Add Item To Cart
   onAddToCartClick(item: any) {
- 
-    if(this.appService.cart.length==0)
-    {
-      let cartItem =new CartItem();
-        cartItem.item=item;
-        cartItem.quantity=1;
-        this.appService.cart.push(cartItem)
-    }
-    else
-    {
-    let index=this.appService.cart.findIndex(i => i.item.id==item.id)
-    console.log(index)
-    if(index !=-1)
-    {
-      this.appService.cart[index].quantity++;
-    }
-    else
-    {
-      let cartItem =new CartItem();
-      cartItem.item=item;
-      cartItem.quantity=1;
+
+    if (this.appService.cart.length == 0) {
+      let cartItem = new CartItem();
+      cartItem.item = item;
+      cartItem.quantity = 1;
       this.appService.cart.push(cartItem)
     }
-  
-    
-    
+    else {
+      let index = this.appService.cart.findIndex(i => i.item.id == item.id)
+      console.log(index)
+      if (index != -1) {
+        this.appService.cart[index].quantity++;
+      }
+      else {
+        let cartItem = new CartItem();
+        cartItem.item = item;
+        cartItem.quantity = 1;
+        this.appService.cart.push(cartItem)
+      }
+
+
+
+    }
+    console.log(this.appService.cart)
   }
-  console.log(this.appService.cart)
-}
 
 
 }

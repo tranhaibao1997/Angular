@@ -10,24 +10,22 @@ import { element } from 'protractor';
   styleUrls: ['./navigation-bar.component.css']
 })
 export class NavigationBarComponent implements OnInit {
-
-   
-  constructor(private appService:AppServiceService,
-   ) { }
-  categorylist:string[]=[];
+  categorylist: string[] = [];
+private abc: any;
+  constructor(private appService: AppServiceService,
+  ) { }
+  
 
   ngOnInit() {
-    
+
   }
 
-  
-  onSelectClick(clicked_id:number)
-  {
-    this.appService.categoryID = clicked_id;
-    this.appService.updatedCategoryRequest.next(clicked_id)
+
+
+  // Get Category Id and then send to Service
+  onSelectClick(clickedId: number) {
+    this.appService.categoryID = clickedId;
+    this.appService.updatedCategoryRequest.next(clickedId);
     console.log(this.appService.categoryID)
-    
-    
-   
   }
 }

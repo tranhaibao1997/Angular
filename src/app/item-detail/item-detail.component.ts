@@ -27,20 +27,17 @@ export class ItemDetailComponent implements OnInit {
    this.getItemFromRouter();
    
   }
+
+  // Get Item Id from URL and then get Item from Service
   getItemFromRouter()
   {
     const id= parseInt(this.rount.snapshot.paramMap.get('id'));
     console.log(`this.route.snapshot.paramMap = ${JSON.stringify(this.rount.snapshot.paramMap)}`);
     this.item=this.appService.getItemID(id);
-    console.log(this.item)
-
-
-  }
+   
+}
   
-  goBack()
-  {
-    this.location.back();
-  }
+// Add item to cart
   onAddToCartClick()
   {
     if(this.appService.cart.length==0)
